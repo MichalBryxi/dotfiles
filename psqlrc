@@ -1,0 +1,4 @@
+\x auto
+\timing on
+\pset null '(NULL)'
+-- \set PROMPT1 '%[%033[32m%]psql:%[%033[36m%]//%n%[%033[34m%]@%[%033[36m%]%`hostname`:%>%[%033[33m%]/%/ %[%033[K%]%[%033[0m%]\n'
