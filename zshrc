@@ -99,4 +99,3 @@ unsetopt share_history
 alias pe-puppetdb='cd ~/Puppet/pe-puppetdb-extensions; lein -U run services -c puppetdb.conf'
 alias pe-console-middleware='cd ~/Puppet/pe-console-ui/; lein dev'
 alias pe-console-ui='cd ~/Puppet/pe-console-ui/dev-resources/console-ui/; ember build --watch'
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'

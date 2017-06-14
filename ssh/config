@@ -1,33 +1,8 @@
 IdentityFile ~/.ssh/id_rsa
-IdentityFile ~/.ssh/id_dsa_intraworlds
 ServerAliveInterval 60
-
-host mywhu.whu.edu ghost
-  user root
-
-host pm nibbler jenkins jenkins_old elvis odev01 web0* process01 mail03 ext01 db01 db02 infra01 infra02 wave zoidberg backup fry ftp owncloud kulik bubik donald zweb01 zweb02 zweb03 zdb01 zjboss01 zdb02 zwatch01 cubes
-  user michal.bryxi
 
 host dione.zcu.cz
   user picca
-
-host huberlin
-  user web0045
-
-host goettingen
-  user w3alumni
-
-host localhost
-  user root
-  port 2222
-
-host tilde.town
-  user MichalBryxi
-
-host zebracams
-  hostname 95.168.193.101
-  port 11122
-  user root
 
 host titl.cz
   hostname 37.157.195.162
@@ -36,12 +11,8 @@ host titl.cz
 host *.delivery.puppetlabs.net
   StrictHostKeyChecking no
   IdentityFile ~/.ssh/id_rsa-acceptance
-  user root 
-
-host belfast-misa.pudr.com
   user root
 
 host *
   user michal.bryxi
-  ForwardAgent yes 
-
+  ForwardAgent yes
