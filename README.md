@@ -10,3 +10,10 @@ brew install rcm
 git clone git@github.com:MichalBryxi/dotfiles.git .dotfiles
 rcup -v
 ```
+
+## Update config
+```
+cd ~/.dotfiles
+git commit -a -m 'Regular backup'
+git push
+```

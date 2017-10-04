@@ -9,8 +9,7 @@ export DEFAULT_USER="michal"
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="agnoster"
 # ZSH_THEME="miloshadzic"
-ZSH_THEME="bullet-train"
-BULLETTRAIN_RUBY_SHOW=false
+ZSH_THEME="pure"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -99,3 +98,11 @@ unsetopt share_history
 alias pe-puppetdb='cd ~/Puppet/pe-puppetdb-extensions; lein -U run services -c puppetdb.conf'
 alias pe-console-middleware='cd ~/Puppet/pe-console-ui/; lein dev'
 alias pe-console-ui='cd ~/Puppet/pe-console-ui/dev-resources/console-ui/; ember build --watch'
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+#ssh-add ~/.ssh/id_rsa-acceptance
+
+
+source "/Users/michal/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
