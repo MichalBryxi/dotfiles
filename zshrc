@@ -9,7 +9,20 @@ export DEFAULT_USER="michal"
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="agnoster"
 # ZSH_THEME="miloshadzic"
-ZSH_THEME="pure"
+ZSH_THEME="spaceship"
+
+SPACESHIP_PROMPT_ORDER=(
+  dir           # Current directory section
+  git           # Git section (git_branch + git_status)
+  #package       # Package version
+  #node          # Node.js section
+  #ruby          # Ruby section
+  #docker        # Docker section
+  #ember         # Ember.js section
+  line_sep      # Line break
+  exit_code     # Exit code section
+  char          # Prompt character
+)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -103,6 +116,8 @@ export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
 #ssh-add ~/.ssh/id_rsa-acceptance
+
+
 
 
 source "/Users/michal/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
