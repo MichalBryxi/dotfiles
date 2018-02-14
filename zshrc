@@ -52,7 +52,7 @@ SPACESHIP_PROMPT_ORDER=(
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -70,54 +70,26 @@ plugins=(git)
 
 # User configuration
 
-#export PATH="$PATH:/Users/michal/.rvm/gems/ruby-2.1.0/bin:/Users/michal/.rvm/gems/ruby-2.1.0@global/bin:/Users/michal/.rvm/rubies/ruby-2.1.0/bin:/Users/michal/PuppetLabs/bin:/usr/local/sbin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/TeX/texbin:/Users/michal/.rvm/bin:/Users/michal/.rvm/bin"
-export PATH="$PATH:/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/TeX/texbin"
+export PATH="$PATH:/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PGDATA='/usr/local/var/postgres'
 export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/sbin:$PATH"
+export GOPATH=~/go
+export PATH="$GOPATH/bin:$PATH"
 
 unsetopt share_history
 
+alias rake='noglob rake'
 alias pe-puppetdb='cd ~/Puppet/pe-puppetdb-extensions; lein -U run services -c puppetdb.conf'
 alias pe-console-middleware='cd ~/Puppet/pe-console-ui/; lein dev'
 alias pe-console-ui='cd ~/Puppet/pe-console-ui/dev-resources/console-ui/; ember build --watch'
 
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+alias gitprune='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
-#ssh-add ~/.ssh/id_rsa-acceptance
-
-
-
-
-source "/Users/michal/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
+tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
